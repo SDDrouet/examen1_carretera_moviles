@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_navegacion/view/MostrarDatosCarreteraView.dart';
 
 class FormVehiculo extends StatelessWidget {
   // Declarar los objetos para los campos del formulario
@@ -63,9 +64,7 @@ class FormVehiculo extends StatelessWidget {
                     int dinero = int.tryParse(_dineroController.text.trim()) ?? 0;
 
                     if (km > 0 && precioLitro > 0) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Datos ingresados correctamente")),
-                      );
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MostrarDatosCarreteraView(km: km, precioLitro: precioLitro, litrosGastados: litrosGastados, litrosPorKm: litrosKm, pelasPorKm: pelasKm, horas: horas, minutos: minutos, dinero: dinero)));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text("Por favor ingrese valores válidos")),
